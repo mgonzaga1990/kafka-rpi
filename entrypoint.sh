@@ -16,7 +16,7 @@ exec $KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties
 
 #sleep 2
 
-while true
-do
-  sleep 1000
-done
+#while true
+#do
+#  sleep 1000
+#done
