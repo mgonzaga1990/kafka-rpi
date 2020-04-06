@@ -11,6 +11,8 @@ ENV KAFKA_HOME=/kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 
 ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
+ENV ZOOKEEPER_HOST=
+
 COPY entrypoint.sh /tmp/
 
 RUN mv /tmp/entrypoint.sh /usr/bin
