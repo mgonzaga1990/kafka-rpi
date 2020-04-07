@@ -31,7 +31,7 @@ echo "$TOPICS" >> topic.txt
 awk -F':' '{ system("$KAFKA_HOME/bin/kafka-topics.sh --create --bootstrap-server $ip:$PORT --topic=$1 --partitions 1 --replication-factor 1) }' /topic.txt
 
 
-while true
-do
-  sleep 1000
-done
+#while true
+#do
+#  sleep 1000
+#done
