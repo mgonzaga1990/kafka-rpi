@@ -12,14 +12,22 @@ ENV KAFKA_HOME=/kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 ENV PATH=${PATH}:${KAFKA_HOME}/bin
 
 ENV ZOOKEEPER_HOST=
+ENV EXTERNAL_IP=
+ENV PORT=9092
+ENV TOPICS=
 
 COPY entrypoint.sh /tmp/
 
 RUN mv /tmp/entrypoint.sh /usr/bin
 
 RUN wget -P /opt http://mirror.rise.ph/apache/kafka/${KAFKA_VERSION}/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
-RUN tar -xvf /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
+RUN tar -xvf /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz \
+    && rm /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz
+
 
 RUN chmod +x /usr/bin/entrypoint.sh
+
+
+EXPOSE ${PORT}
 
 CMD /usr/bin/entrypoint.sh
