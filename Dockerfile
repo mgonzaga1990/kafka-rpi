@@ -14,9 +14,10 @@ ENV PATH=${PATH}:${KAFKA_HOME}/bin
 ENV ZOOKEEPER_HOST=
 ENV EXTERNAL_IP=
 ENV PORT=9092
-ENV TOPICS=
+#ENV TOPICS=
 
 COPY entrypoint.sh /tmp/
+COPY topic.proper* /usr/bin
 
 RUN mv /tmp/entrypoint.sh /usr/bin
 
